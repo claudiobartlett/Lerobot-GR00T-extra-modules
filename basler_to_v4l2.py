@@ -5,14 +5,14 @@ import time
 from pypylon import pylon
 
 # ----------------------------------------
-# Configure your Basler camera
+# Configure Basler camera
 # ----------------------------------------
 cam = pylon.InstantCamera(pylon.TlFactory.GetInstance().CreateFirstDevice())
 cam.Open()
 cam.PixelFormat = "BGR8"
 
 # -----------------------------
-# Try to brighten via camera settings first
+# Brighten via camera settings
 # -----------------------------
 try:
     # Auto exposure if available
@@ -73,7 +73,7 @@ cam.StartGrabbing()
 # ----------------------------------------
 OUTPUT_WIDTH = 640
 OUTPUT_HEIGHT = 480
-FPS = 15   # final FPS we output to v4l2loopback
+FPS = 15   # final FPS output to v4l2loopback
 
 # Software FPS limiter
 FRAME_INTERVAL = 1.0 / FPS
